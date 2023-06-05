@@ -25,14 +25,16 @@ function createPattern() {
     gridContainer.innerHTML = "";
   
     const rangeInput = document.getElementById('rangeInput');
-    let range = parseInt(rangeInput.value) - 1 || 211;  // Use input value - 1 (since we start at 2) or default to 211 if input is empty
+    let range = parseInt(rangeInput.value) || 211;  // Use input value or default to 211 if input is empty
    
     // Adjust range so that the final row is full
     const remainder = range % 6;
-    if (remainder !== 5) {
-      range += (6 - remainder);
-    } else if (remainder === 0) {
-        range += 1;
+    if (remainder === 0) {
+        range = range; // since we start at 2, we dont need to add one to the multiples of 6 to complete the row
+    } else if (remainder === 1) {
+        range = range - 1; // have to subtract 1 b/c we start at 2. otherwise input 25 (remainder=1) gives 26, etc.
+    } else if (remainder <= 5){
+        range += (6 - remainder) // 5 - remainder would work if we start at 1, but starting at 2 requires 6 - remainder
     }
     
     for (let i = 0; i < range; i++) {
