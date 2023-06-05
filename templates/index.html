@@ -1,0 +1,13 @@
+<h1><center>Prime Playground</center></h1>
+<div class="grid" id="grid-container"></div>
+
+<div id="button-container">
+  <button onclick="toggleMultiplesOfSix()">Highlight Multiples of 6</button>
+  <button onclick="toggleColumnToLeft()">Highlight Column to the Left</button>
+  <button onclick="toggleMultiplesOfFive()">Highlight Multiples of 5</button>
+  <button onclick="toggleColumnToRight()">Highlight Column to the Right</button>
+  <button onclick="toggleMultiplesOfSeven()">Highlight Multiples of 7</button>
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>

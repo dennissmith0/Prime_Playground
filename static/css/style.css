@@ -1,0 +1,24 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-gap: 5px;
+    text-align: center;
+  }
+  .highlight {
+    background-color: yellow;
+  }
+  .highlight-column-left {
+    background-color: lightgreen;
+  }
+  .highlight-multiples-five {
+    background-color: lightblue;
+  }
+  .highlight-multiples-seven {
+    background-color: lightsalmon;
+  }
+  .highlight-column-right {
+    background-color: coral;
+  }
+  .column-button {
+    padding: 5px;
+  }
