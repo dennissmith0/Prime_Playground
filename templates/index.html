@@ -1,8 +1,13 @@
-<h1><center>Prime Playground</center></h1>
+<h1><center>Prime Playground
+    <form id="patternForm">
+        <input type="number" id="rangeInput" placeholder="Enter a number" min="0">
+        <button type="submit">Create Number Field</button>
+      </form>      
+</center></h1>
 <div class="grid" id="grid-container"></div>
 
 <div id="button-container">
-  <button onclick="toggleMultiplesOfSix()">Highlight Multiples of 6</button>
+  <!-- <button onclick="toggleMultiplesOfSix()">Highlight Multiples of 6</button> -->
   <button onclick="toggleColumnToLeft()">Highlight Column to the Left</button>
   <button onclick="toggleMultiplesOfFive()">Highlight Multiples of 5</button>
   <button onclick="toggleColumnToRight()">Highlight Column to the Right</button>

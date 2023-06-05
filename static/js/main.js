@@ -1,5 +1,10 @@
 console.log('JavaScript file loaded.')
 
+document.getElementById('patternForm').addEventListener('submit', function(e) {
+    e.preventDefault();  // Prevent the form from being submitted in the default way
+    createPattern();
+  });  
+
 const gridContainer = document.getElementById('grid-container');
   let isMultiplesOfSixOn = false;
   let isColumnToLeftOn = false;
@@ -7,15 +12,40 @@ const gridContainer = document.getElementById('grid-container');
   let isColumnToRightOn = false;
   let isMultiplesOfSevenOn = false;
 
-  function createPattern() {
-    for (let i = 0; i < 211; i++) {
+//   function createPattern() {
+//     for (let i = 0; i < 211; i++) {
+//       const gridItem = document.createElement('div');
+//       gridItem.classList.add('grid-item');
+//       gridItem.textContent = i + 2;
+//       gridContainer.appendChild(gridItem);
+//     }
+//   }
+function createPattern() {
+    // Clear grid before creating a new pattern
+    gridContainer.innerHTML = "";
+  
+    const rangeInput = document.getElementById('rangeInput');
+    let range = parseInt(rangeInput.value) - 1 || 211;  // Use input value - 1 (since we start at 2) or default to 211 if input is empty
+   
+    // Adjust range so that the final row is full
+    const remainder = range % 6;
+    if (remainder !== 5) {
+      range += (6 - remainder);
+    } else if (remainder === 0) {
+        range += 1;
+    }
+    
+    for (let i = 0; i < range; i++) {
       const gridItem = document.createElement('div');
       gridItem.classList.add('grid-item');
       gridItem.textContent = i + 2;
       gridContainer.appendChild(gridItem);
     }
+    
+    // Reset the range input field after creating the pattern
+    rangeInput.value = "";
   }
-
+  
   function checkPrime(num) {
   if (num <= 1) {
     return false;
@@ -85,4 +115,4 @@ const gridContainer = document.getElementById('grid-container');
       item.classList.toggle('highlight', isMultiplesOfSevenOn && isMultipleOfSeven);
     });
   }
-  createPattern();
+//   createPattern();
