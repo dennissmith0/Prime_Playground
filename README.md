@@ -8,6 +8,7 @@ A web application that allows users to generate a grid of numbers with various h
 - Highlight "right-hand side" primes in the 6th column
 - Highlight multiples of 5
 - Highlight multiples of 7
+- Highlight multiles of user-specified input
 - ... more to come
 
 ## Local Setup
