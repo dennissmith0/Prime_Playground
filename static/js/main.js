@@ -3,7 +3,11 @@ console.log('JavaScript file loaded.')
 document.getElementById('patternForm').addEventListener('submit', function(e) {
     e.preventDefault();  // Prevent the form from being submitted in the default way
     createPattern();
-  });  
+  }); 
+document.getElementById('multiplesForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent form submission
+    highlightMultiples();
+  });
 
 const gridContainer = document.getElementById('grid-container');
   let isMultiplesOfSixOn = false;
@@ -11,15 +15,8 @@ const gridContainer = document.getElementById('grid-container');
   let isMultiplesOfFiveOn = false;
   let isColumnToRightOn = false;
   let isMultiplesOfSevenOn = false;
+  let ishighlightMultiplesOn = false;
 
-//   function createPattern() {
-//     for (let i = 0; i < 211; i++) {
-//       const gridItem = document.createElement('div');
-//       gridItem.classList.add('grid-item');
-//       gridItem.textContent = i + 2;
-//       gridContainer.appendChild(gridItem);
-//     }
-//   }
 function createPattern() {
     // Clear grid before creating a new pattern
     gridContainer.innerHTML = "";
@@ -114,7 +111,25 @@ function createPattern() {
       const rowIndex = Math.floor(itemIndex / 6);
       const columnIndex = itemIndex % 6;
       const isMultipleOfSeven = (rowIndex % 7 === 0 && columnIndex === 5) || ((rowIndex) % 7 === 2 && columnIndex === 0) || (rowIndex % 7 === 3 && columnIndex === 1) || (rowIndex % 7 === 4 && columnIndex === 2) || ((rowIndex) % 7 === 5 && columnIndex === 3) || (rowIndex % 7 === 6 && columnIndex === 4);
-      item.classList.toggle('highlight', isMultiplesOfSevenOn && isMultipleOfSeven);
+      item.classList.toggle('highlight-multiples-seven', isMultiplesOfSevenOn && isMultipleOfSeven);
     });
   }
+
+  function highlightMultiples() {
+    const multiplesInput = document.getElementById('multiplesInput');
+    ishighlightMultiplesOn = !ishighlightMultiplesOn;
+
+    let multiple = parseInt(multiplesInput.value) || 0; // Use the input value, default to 1 if input is empty
+    
+    const gridItems = document.querySelectorAll('.grid-item');
+    
+    gridItems.forEach(item => {
+      const value = parseInt(item.textContent);
+      item.classList.toggle('highlight', value % multiple === 0);
+    });
+  
+    // Reset the multiples input field after highlighting
+    multiplesInput.value = "";
+  }
+  
 //   createPattern();
