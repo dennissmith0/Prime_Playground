@@ -5,7 +5,7 @@
     text-align: center;
   }
   .highlight {
-    background-color: rgb(153, 100, 206);
+    background-color: rgb(202, 160, 244);
   }
   .highlight-column-left {
     background-color: lightgreen;
@@ -20,5 +20,8 @@
     background-color: rgb(239, 199, 144);
   }
   .column-button {
-    padding: 2px;
+    padding: 5px;
+  }
+  .my-button{
+    margin-right: 550px;
   }

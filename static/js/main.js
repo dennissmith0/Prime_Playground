@@ -43,9 +43,9 @@ function createPattern() {
     
     // Reset the range input field after creating the pattern
     rangeInput.value = "";
-  }
+}
   
-  function checkPrime(num) {
+function checkPrime(num) {
   if (num <= 1) {
     return false;
   }
@@ -56,6 +56,20 @@ function createPattern() {
   }
   return true;
 }
+
+function clearHighlights() {
+    const gridItems = document.querySelectorAll('.grid-item');
+  
+    gridItems.forEach(item => {
+      // Remove all highlight classes
+      item.classList.remove('highlight');
+      item.classList.remove('highlight-column-left');
+      item.classList.remove('highlight-column-right');
+      item.classList.remove('highlight-multiples-five');
+      item.classList.remove('highlight-multiples-seven');
+    });
+}
+  
   
   function toggleMultiplesOfSix() {
     const gridItems = document.querySelectorAll('.grid-item');
