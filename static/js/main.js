@@ -57,21 +57,7 @@ function checkPrime(num) {
   return true;
 }
 
-function clearHighlights() {
-    const gridItems = document.querySelectorAll('.grid-item');
-  
-    gridItems.forEach(item => {
-      // Remove all highlight classes
-      item.classList.remove('highlight');
-      item.classList.remove('highlight-column-left');
-      item.classList.remove('highlight-column-right');
-      item.classList.remove('highlight-multiples-five');
-      item.classList.remove('highlight-multiples-seven');
-    });
-}
-  
-  
-  function toggleMultiplesOfSix() {
+function toggleMultiplesOfSix() {
     const gridItems = document.querySelectorAll('.grid-item');
     isMultiplesOfSixOn = !isMultiplesOfSixOn;
     
@@ -79,9 +65,9 @@ function clearHighlights() {
       const value = parseInt(item.textContent);
       item.classList.toggle('highlight', isMultiplesOfSixOn && value % 6 === 0);
     });
-  }
+}
   
-  function toggleColumnToLeft() {
+function toggleColumnToLeft() {
     const gridItems = document.querySelectorAll('.grid-item');
     isColumnToLeftOn = !isColumnToLeftOn;
     
@@ -91,9 +77,9 @@ function clearHighlights() {
       const isPrime = checkPrime(value);
       item.classList.toggle('highlight-column-left', isColumnToLeftOn && columnIndex === 3 && isPrime);
     });
-  }
+}
 
-  function toggleColumnToRight() {
+function toggleColumnToRight() {
     const gridItems = document.querySelectorAll('.grid-item');
     isColumnToRightOn = !isColumnToRightOn;
     
@@ -103,9 +89,9 @@ function clearHighlights() {
       const isPrime = checkPrime(value);
       item.classList.toggle('highlight-column-right', isColumnToRightOn && columnIndex === 5 && isPrime);
     });
-  }
+}
   
-  function toggleMultiplesOfFive() {
+function toggleMultiplesOfFive() {
     const gridItems = document.querySelectorAll('.grid-item');
     isMultiplesOfFiveOn = !isMultiplesOfFiveOn;
     
@@ -115,9 +101,9 @@ function clearHighlights() {
       const isMultipleOfFive = (rowIndex % 5 === 3 && (columnIndex === 0 || columnIndex === 5)) || (rowIndex % 5 === 0 && columnIndex === 3) || (rowIndex % 5 === 1 && columnIndex === 2) || (rowIndex % 5 === 2 && columnIndex === 1) || (rowIndex % 5 === 4 && columnIndex === 4);
       item.classList.toggle('highlight-multiples-five', isMultiplesOfFiveOn && isMultipleOfFive);
     });
-  }
+}
 
-  function toggleMultiplesOfSeven() {
+function toggleMultiplesOfSeven() {
     const gridItems = document.querySelectorAll('.grid-item');
     isMultiplesOfSevenOn = !isMultiplesOfSevenOn;
     
@@ -127,9 +113,9 @@ function clearHighlights() {
       const isMultipleOfSeven = (rowIndex % 7 === 0 && columnIndex === 5) || ((rowIndex) % 7 === 2 && columnIndex === 0) || (rowIndex % 7 === 3 && columnIndex === 1) || (rowIndex % 7 === 4 && columnIndex === 2) || ((rowIndex) % 7 === 5 && columnIndex === 3) || (rowIndex % 7 === 6 && columnIndex === 4);
       item.classList.toggle('highlight-multiples-seven', isMultiplesOfSevenOn && isMultipleOfSeven);
     });
-  }
+}
 
-  function highlightMultiples() {
+function highlightMultiples() {
     const multiplesInput = document.getElementById('multiplesInput');
     ishighlightMultiplesOn = !ishighlightMultiplesOn;
 
@@ -144,6 +130,18 @@ function clearHighlights() {
   
     // Reset the multiples input field after highlighting
     multiplesInput.value = "";
-  }
+}
+
+function clearHighlights() {
+    const gridItems = document.querySelectorAll('.grid-item');
   
+    gridItems.forEach(item => {
+      // Remove all highlight classes
+      item.classList.remove('highlight');
+      item.classList.remove('highlight-column-left');
+      item.classList.remove('highlight-column-right');
+      item.classList.remove('highlight-multiples-five');
+      item.classList.remove('highlight-multiples-seven');
+    });
+}
 //   createPattern();
