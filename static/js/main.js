@@ -1,5 +1,7 @@
 console.log('JavaScript file loaded.')
 
+let totalPrimeCount = 0; // Global variable to hold the total number of primes
+
 document.getElementById('patternForm').addEventListener('submit', function(e) {
     e.preventDefault();  // Prevent the form from being submitted in the default way
     createPattern();
@@ -68,27 +70,51 @@ function toggleMultiplesOfSix() {
 }
   
 function toggleColumnToLeft() {
-    const gridItems = document.querySelectorAll('.grid-item');
+    // Reset all highlights and prime count before applying new highlights
+    //resetAllHighlights();
     isColumnToLeftOn = !isColumnToLeftOn;
+
+    const gridItems = document.querySelectorAll('.grid-item');
     
     gridItems.forEach((item, itemIndex) => {
-      const columnIndex = itemIndex % 6;
-      const value = parseInt(item.textContent);
-      const isPrime = checkPrime(value);
-      item.classList.toggle('highlight-column-left', isColumnToLeftOn && columnIndex === 3 && isPrime);
+        const columnIndex = itemIndex % 6;
+        const value = parseInt(item.textContent);
+        const isPrime = checkPrime(value);
+        const isHighlighted = isColumnToLeftOn && columnIndex === 3 && isPrime;
+        item.classList.toggle('highlight-column-left', isHighlighted);
+        
+        if (isHighlighted) {
+            totalPrimeCount++; // Increase total prime counter for each highlighted prime
+        }
     });
+
+    // Update counter display
+    document.getElementById('prime-count').textContent = `Prime Count: ${totalPrimeCount}`;
 }
+  
 
 function toggleColumnToRight() {
-    const gridItems = document.querySelectorAll('.grid-item');
+    // Reset all highlights and prime count before applying new highlights
+    //resetAllHighlights();
     isColumnToRightOn = !isColumnToRightOn;
-    
+    //let totalPrimeCount = totalPrimeCount; // Initialize prime counter
+
+    const gridItems = document.querySelectorAll('.grid-item');
+
     gridItems.forEach((item, itemIndex) => {
       const columnIndex = itemIndex % 6;
       const value = parseInt(item.textContent);
       const isPrime = checkPrime(value);
-      item.classList.toggle('highlight-column-right', isColumnToRightOn && columnIndex === 5 && isPrime);
+      const isHighlighted = isColumnToRightOn && columnIndex === 5 && isPrime;
+      item.classList.toggle('highlight-column-right', isHighlighted);
+      
+      if (isHighlighted) {
+        totalPrimeCount++; // Increase prime counter for each highlighted prime
+      }
     });
+
+    // Update counter display
+    document.getElementById('prime-count').textContent = `Prime Count: ${totalPrimeCount}`;
 }
   
 function toggleMultiplesOfFive() {
@@ -132,16 +158,23 @@ function highlightMultiples() {
     multiplesInput.value = "";
 }
 
-function clearHighlights() {
+  // Add a function to reset all highlights and reset the prime counter
+  function resetAllHighlights() {
     const gridItems = document.querySelectorAll('.grid-item');
-  
+
+    // Remove all highlight classes
     gridItems.forEach(item => {
-      // Remove all highlight classes
-      item.classList.remove('highlight');
-      item.classList.remove('highlight-column-left');
-      item.classList.remove('highlight-column-right');
-      item.classList.remove('highlight-multiples-five');
-      item.classList.remove('highlight-multiples-seven');
+        item.classList.remove('highlight');
+        item.classList.remove('highlight-column-left');
+        item.classList.remove('highlight-column-right');
+        item.classList.remove('highlight-multiples-five');
+        item.classList.remove('highlight-multiples-seven');
     });
+
+    // Reset prime counter
+    totalPrimeCount = 0;
+    // Update counter display
+    document.getElementById('prime-count').textContent = `Prime Count: ${totalPrimeCount}`;
+
 }
 //   createPattern();

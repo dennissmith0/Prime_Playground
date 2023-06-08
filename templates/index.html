@@ -1,25 +1,30 @@
-<h1><center>Prime Playground
+<div class="header">
+    <h1>Prime Playground</h1>
     <form id="patternForm">
         <input type="number" id="rangeInput" placeholder="Enter a number" min="2">
         <button type="submit">Create Number Field</button>
     </form>
-</center></h1>
-
-<div id="button-container">
-  <!-- <button onclick="toggleMultiplesOfSix()">Highlight Multiples of 6</button> -->
-  <button onclick="toggleColumnToLeft()">Highlight Column to the Left</button>
-  <button onclick="toggleMultiplesOfFive()">Highlight Multiples of 5</button>
-  <button onclick="toggleColumnToRight()">Highlight Column to the Right</button>
-  <button onclick="toggleMultiplesOfSeven()">Highlight Multiples of 7</button>
-</div>
-
-<form id="multiplesForm">
-    <input type="number" id="multiplesInput" placeholder="Enter a number" min="2">
-    <button class="my-button" type="submit">Highlight Multiples</button>
-    <button class="my-button" onclick="clearHighlights()">Clear Highlights</button>
-</form>  
-
-<div class="grid" id="grid-container"></div>
-
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </div>
+  
+  <div class="side-panel">
+    <div id="prime-count">Prime Count: 0</div>
+    <div id="button-container">
+      <button onclick="toggleColumnToLeft()">Highlight Column to the Left</button>
+      <button onclick="toggleMultiplesOfFive()">Highlight Multiples of 5</button>
+      <button onclick="toggleColumnToRight()">Highlight Column to the Right</button>
+      <button onclick="toggleMultiplesOfSeven()">Highlight Multiples of 7</button>
+    </div>
+    <form id="multiplesForm">
+        <input type="number" id="multiplesInput" placeholder="Enter a number" min="2">
+        <button class="clear-button" type="submit">Highlight Multiples</button>
+        <button class="clear-button" onclick="resetAllHighlights()">Clear Highlights</button>
+    </form>  
+  </div>
+  
+  <div class="main-container">
+    <div class="grid" id="grid-container"></div>
+  </div>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  

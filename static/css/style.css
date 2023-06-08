@@ -1,9 +1,4 @@
-.grid {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    grid-gap: 5px;
-    text-align: center;
-  }
+
   .highlight {
     background-color: rgb(202, 160, 244);
   }
@@ -22,6 +17,74 @@
   .column-button {
     padding: 5px;
   }
-  .my-button{
-    margin-right: 550px;
+  .clear-button{
+    margin-right: 5px;
   }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+  }
+  
+  .header h1 {
+    margin: 0;
+  }
+  
+  .side-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  #prime-count {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  #button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .main-container {
+    display: flex;
+    justify-content: center;
+    width: 80vw;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 5px;
+    text-align: center;
+  }
+  
+  .clear-button {
+    margin-top: 10px;
+  }
+  
+  form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  form input,
+  form button {
+    flex: 1 0 100px;
+    margin-bottom: 10px;
+  }
+  
