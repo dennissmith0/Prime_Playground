@@ -81,11 +81,19 @@ function toggleColumnToLeft() {
         const value = parseInt(item.textContent);
         const isPrime = checkPrime(value);
         const isHighlighted = isColumnToLeftOn && columnIndex === 3 && isPrime;
-        item.classList.toggle('highlight-column-left', isHighlighted);
-        
-        if (isHighlighted) {
-            totalPrimeCount++; // Increase total prime counter for each highlighted prime
+        // Check if item was previously highlighted
+        const wasHighlighted = item.classList.contains('highlight-column-left');
+
+        // If it is currently highlighted and was not highlighted before, increase counter
+        if (isHighlighted && !wasHighlighted) {
+            totalPrimeCount++;
         }
+        // If it is not currently highlighted but was highlighted before, decrease counter
+        else if (!isHighlighted && wasHighlighted) {
+            totalPrimeCount--;
+        }
+
+        item.classList.toggle('highlight-column-left', isHighlighted);
     });
 
     // Update counter display
@@ -106,11 +114,20 @@ function toggleColumnToRight() {
       const value = parseInt(item.textContent);
       const isPrime = checkPrime(value);
       const isHighlighted = isColumnToRightOn && columnIndex === 5 && isPrime;
-      item.classList.toggle('highlight-column-right', isHighlighted);
       
-      if (isHighlighted) {
-        totalPrimeCount++; // Increase prime counter for each highlighted prime
+      // Check if item was previously highlighted
+      const wasHighlighted = item.classList.contains('highlight-column-right');
+
+      // If it is currently highlighted and was not highlighted before, increase counter
+      if (isHighlighted && !wasHighlighted) {
+        totalPrimeCount++;
       }
+      // If it is not currently highlighted but was highlighted before, decrease counter
+      else if (!isHighlighted && wasHighlighted) {
+        totalPrimeCount--;
+      }
+      
+      item.classList.toggle('highlight-column-right', isHighlighted);
     });
 
     // Update counter display
