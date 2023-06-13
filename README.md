@@ -24,11 +24,11 @@ Follow these instructions to run this project locally.
 
 1. Clone this repository
 
-`git clone https://github.com/dennissmith0/Primus.git`
+`git clone https://github.com/dennissmith0/Prime-Playground.git`
 
 2. Navigate into the directory of the project
 
-`$ cd Primus`
+`$ cd Prime-Playground`
 
 3. Install the required packages
 
