@@ -19,6 +19,7 @@ const gridContainer = document.getElementById('grid-container');
   let isMultiplesOfSevenOn = false;
   let ishighlightMultiplesOn = false;
 
+
 function createPattern() {
     // Clear grid before creating a new pattern
     gridContainer.innerHTML = "";
@@ -70,8 +71,6 @@ function toggleMultiplesOfSix() {
 }
   
 function toggleColumnToLeft() {
-    // Reset all highlights and prime count before applying new highlights
-    //resetAllHighlights();
     isColumnToLeftOn = !isColumnToLeftOn;
 
     const gridItems = document.querySelectorAll('.grid-item');
@@ -81,6 +80,7 @@ function toggleColumnToLeft() {
         const value = parseInt(item.textContent);
         const isPrime = checkPrime(value);
         const isHighlighted = isColumnToLeftOn && columnIndex === 3 && isPrime;
+        
         // Check if item was previously highlighted
         const wasHighlighted = item.classList.contains('highlight-column-left');
 
@@ -102,10 +102,7 @@ function toggleColumnToLeft() {
   
 
 function toggleColumnToRight() {
-    // Reset all highlights and prime count before applying new highlights
-    //resetAllHighlights();
     isColumnToRightOn = !isColumnToRightOn;
-    //let totalPrimeCount = totalPrimeCount; // Initialize prime counter
 
     const gridItems = document.querySelectorAll('.grid-item');
 
