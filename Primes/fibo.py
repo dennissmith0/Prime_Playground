@@ -6,6 +6,9 @@ def fibonacci(n):
     else:
         return fibonacci(n-1) + fibonacci(n-2)
     
+#print(fibonacci(10)) # 55
+#print(fibonacci(20)) # 6765
+    
 '''This script will print out the first n+1 Fibonacci numbers, starting from 0.
 Note that range(n+1) is used to include n in the range.
 
@@ -32,5 +35,3 @@ if __name__ == "__main__":
     fib = fibonacci(n)
     for num in fib:
         print(num)
-#print(fibonacci(10)) # 55
-#print(fibonacci(20)) # 6765
